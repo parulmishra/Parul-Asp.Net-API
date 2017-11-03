@@ -29,6 +29,18 @@ namespace Parul_Asp.Net_API.Controllers
         public IActionResult GetRepos()
         {
             var repos = Repo.GetRepos();
+            for (int i = 0; i < repos.Count; i++)
+            {
+                for (int j = 0; j < repos.Count; j++)
+                {
+                    if (repos[i].stargazers_count < repos[j].stargazers_count)
+                    {
+                        var temp = repos[i];
+                        repos[i] = repos[j];
+                        repos[j] = temp;
+                    }
+                }
+            }
             return View(repos);
         }
     }

@@ -4,17 +4,17 @@
 }
 @model IEnumerable<Parul_Asp.Net_API.Models.Repo>
 
-<h2>Most Starred Projects on GiHub</h2>
-<hr />
-<ol>
+<center><div class="well repo-box">
+<h1>Most Starred Projects on GiHub</h1>
+
     @foreach (var repo in Model)
     {
-        <li>
-            <ul>
-                <li>Name: @Html.DisplayFor(modelItem => repo.name)</li>
-                <li>Url: @Html.DisplayFor(modelItem => repo.url)</li>
-                <li>Stars: @Html.DisplayFor(modelItem => repo.stargazers_count)</li>
-            </ul>
-        </li>
+        <hr />
+                <h3><strong>Name: </strong> @Html.DisplayFor(modelItem => repo.name)</h3>
+                <h3><strong>Url: </strong> @Html.DisplayFor(modelItem => repo.url)</h3>
+                <h3><strong>Stars: </strong> @Html.DisplayFor(modelItem => repo.stargazers_count)</h3>
+              
     }
-</ol>
+    
+</div>
+</center>
