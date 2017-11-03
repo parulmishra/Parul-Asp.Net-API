@@ -21,6 +21,7 @@ namespace Parul_Asp.Net_API.Models
 
             var request = new RestRequest("users/parulmishra/repos", Method.GET);
             request.AddHeader("User-Agent", "parulmishra");
+            request.AddParameter("per-page", 1000);
             
 
             var response = new RestResponse();

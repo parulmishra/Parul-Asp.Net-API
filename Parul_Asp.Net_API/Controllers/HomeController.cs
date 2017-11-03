@@ -31,7 +31,7 @@ namespace Parul_Asp.Net_API.Controllers
             var repos = Repo.GetRepos();
             for (int i = 0; i < repos.Count; i++)
             {
-                for (int j = 0; j < repos.Count; j++)
+                for (int j = i+1; j < repos.Count; j++)
                 {
                     if (repos[i].stargazers_count < repos[j].stargazers_count)
                     {
@@ -41,7 +41,7 @@ namespace Parul_Asp.Net_API.Controllers
                     }
                 }
             }
-            return View(repos);
+            return View(repos.Take(3));
         }
     }
 }
