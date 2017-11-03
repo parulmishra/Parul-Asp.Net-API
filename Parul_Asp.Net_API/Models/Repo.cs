@@ -17,7 +17,7 @@ namespace Parul_Asp.Net_API.Models
         public static List<Repo> GetRepos()
         {
             var client = new RestClient();
-            client.BaseUrl = new Uri("http://api.github.com");
+            client.BaseUrl = new Uri("https://api.github.com");
 
             var request = new RestRequest("users/parulmishra/repos", Method.GET);
             request.AddHeader("User-Agent", "parulmishra");
@@ -31,8 +31,8 @@ namespace Parul_Asp.Net_API.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
 
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var repoList = JsonConvert.DeserializeObject<List<Repo>>(jsonResponse["repos"].ToString());
+            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
+            var repoList = JsonConvert.DeserializeObject<List<Repo>>(jsonResponse.ToString());
             Console.WriteLine(jsonResponse);
             return repoList;
         }
