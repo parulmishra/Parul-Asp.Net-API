@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Parul-Repos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<Parul_Asp.Net_API.Models.Repo>
+
+<h2>Most Starred Projects on GiHub</h2>
+<hr />
+<ol>
+    @foreach (var repo in Model)
+    {
+        <li>
+            <ul>
+                <li>Name: @Html.DisplayFor(modelItem => repo.name)</li>
+                <li>Url: @Html.DisplayFor(modelItem => repo.url)</li>
+                <li>Stars: @Html.DisplayFor(modelItem => repo.stargazers_count)</li>
+            </ul>
+        </li>
+    }
+</ol>

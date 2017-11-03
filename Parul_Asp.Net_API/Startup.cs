@@ -8,8 +8,6 @@ namespace Parul_Asp.Net_API
 {
     public class Startup
     {
-        
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
