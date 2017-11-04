@@ -19,9 +19,9 @@ namespace Parul_Asp.Net_API.Models
             var client = new RestClient();
             client.BaseUrl = new Uri("https://api.github.com");
 
-            var request = new RestRequest("users/parulmishra/repos", Method.GET);
+            var request = new RestRequest("users/parulmishra/repos?per_page=100", Method.GET);
             request.AddHeader("User-Agent", "parulmishra");
-            request.AddParameter("per-page", 1000);
+            
             
 
             var response = new RestResponse();
